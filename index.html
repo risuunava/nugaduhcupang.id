@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nu Gaduh Cupang - Premium Betta Fish</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #062c2d;
+        --secondary: #efdfc5;
+        --accent: #e4b363;
+        --light: #f5f5f5;
+        --dark: #041a1b;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", system-ui, -apple-system, sans-serif;
+      }
+
+      body {
+        background-color: var(--light);
+        color: var(--primary);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      header {
+        background: linear-gradient(135deg, var(--primary), var(--dark));
+        color: var(--secondary);
+        text-align: center;
+        padding: 40px 0 30px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("img/frame1.png") center/cover;
+        opacity: 0.3;
+        z-index: 0;
+      }
+
+      .header-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .logo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--secondary);
+        margin-bottom: 20px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+      }
+
+      .tagline {
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        max-width: 700px;
+        margin: 0 auto 20px;
+        animation: fadeInUp 0.8s ease;
+        opacity: 0.9;
+      }
+
+      .contact-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+        margin: 50px 0;
+      }
+
+      .contact-card {
+        background: white;
+        border-radius: 12px;
+        padding: 25px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        border: 1px solid rgba(6, 44, 45, 0.1);
+        opacity: 0;
+        transform: translateY(20px);
+        animation: fadeInUp 0.6s ease forwards;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .contact-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: 0.5s;
+      }
+
+      .contact-card:hover::before {
+        left: 100%;
+      }
+
+      .contact-card:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .contact-card:nth-child(2) {
+        animation-delay: 0.3s;
+      }
+      .contact-card:nth-child(3) {
+        animation-delay: 0.4s;
+      }
+      .contact-card:nth-child(4) {
+        animation-delay: 0.5s;
+      }
+
+      .contact-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .contact-card h2 {
+        color: var(--primary);
+        margin-bottom: 15px;
+        display: flex;
+        align-items: center;
+        font-size: 1.3rem;
+        padding-bottom: 8px;
+        position: relative;
+      }
+
+      .contact-card h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--accent);
+        transition: width 0.3s ease;
+      }
+
+      .contact-card:hover h2::after {
+        width: 80px;
+      }
+
+      .contact-card h2 i {
+        margin-right: 12px;
+        font-size: 1.4rem;
+        color: var(--accent);
+      }
+
+      .btn-container {
+        margin-top: 20px;
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--primary);
+        color: white;
+        padding: 14px 24px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        width: 100%;
+        text-align: center;
+        transition: all 0.4s ease;
+        position: relative;
+        overflow: hidden;
+        border: none;
+        cursor: pointer;
+        z-index: 1;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent
+        );
+        transition: 0.5s;
+        z-index: -1;
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .btn:active {
+        transform: translateY(0);
+      }
+
+      .btn i {
+        margin-right: 8px;
+        font-size: 1.1rem;
+      }
+
+      .btn-instagram {
+        background: linear-gradient(
+          45deg,
+          #405de6,
+          #833ab4,
+          #c13584,
+          #e1306c,
+          #fd1d1d
+        );
+        background-size: 400% 400%;
+        animation: gradientBG 8s ease infinite;
+      }
+
+      .btn-whatsapp {
+        background: linear-gradient(45deg, #25d366, #128c7e);
+        position: relative;
+      }
+
+      .btn-whatsapp::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.3) 0%,
+          transparent 70%
+        );
+        transform: scale(0);
+        transition: transform 0.5s ease;
+      }
+
+      .btn-whatsapp:hover::after {
+        transform: scale(1);
+      }
+
+      .gallery {
+        margin: 70px 0;
+        text-align: center;
+      }
+
+      .gallery h2 {
+        margin-bottom: 40px;
+        color: var(--primary);
+        font-size: 2rem;
+        position: relative;
+        display: inline-block;
+        animation: fadeIn 0.8s ease;
+      }
+
+      .gallery h2::after {
+        content: "";
+        position: absolute;
+        bottom: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--accent);
+        border-radius: 2px;
+        transition: width 0.3s ease;
+      }
+
+      .gallery h2:hover::after {
+        width: 120px;
+      }
+
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 25px;
+      }
+
+      .gallery-item {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        position: relative;
+        height: 250px;
+      }
+
+      .gallery-item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.7) 0%,
+          transparent 50%
+        );
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+      }
+
+      .gallery-item:hover {
+        transform: translateY(-10px) scale(1.03);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+      }
+
+      .gallery-item:hover::before {
+        opacity: 1;
+      }
+
+      .gallery-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+      }
+
+      .gallery-item:hover img {
+        transform: scale(1.1);
+      }
+
+      .gallery-caption {
+        font-size: 0.8rem;
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        width: 100%;
+        padding: 15px;
+        color: white;
+        text-align: center;
+        z-index: 2;
+        transition: bottom 0.3s ease;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.8) 0%,
+          transparent 100%
+        );
+      }
+
+      .gallery-item:hover .gallery-caption {
+        bottom: 0;
+      }
+
+      footer {
+        text-align: center;
+        padding: 40px 20px;
+        background-color: var(--primary);
+        color: var(--secondary);
+        margin-top: 80px;
+        position: relative;
+      }
+
+      footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 10px;
+        background: linear-gradient(to right, var(--accent), var(--primary));
+      }
+
+      .footer-content {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+        margin: 25px 0;
+      }
+
+      .social-links a {
+        color: var(--secondary);
+        font-size: 1.8rem;
+        transition: all 0.3s ease;
+        position: relative;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        text-decoration: none;
+      }
+
+      .social-links a::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.1);
+        transform: scale(0);
+        transition: transform 0.3s ease;
+      }
+
+      .social-links a:hover::before {
+        transform: scale(1);
+      }
+
+      .social-links a:hover {
+        transform: translateY(-5px) scale(1.1);
+        color: var(--accent);
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes gradientBG {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Floating animation */
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .floating {
+        animation: float 4s ease-in-out infinite;
+      }
+
+      /* Shine effect */
+      @keyframes shine {
+        to {
+          background-position: 200% center;
+        }
+      }
+
+      /* Responsive adjustments */
+      @media (max-width: 768px) {
+        .contact-section {
+          grid-template-columns: 1fr;
+          gap: 20px;
+        }
+
+        .gallery-grid {
+          display: flex;
+          overflow-x: auto;
+          gap: 15px;
+          padding-bottom: 10px;
+          scroll-snap-type: x mandatory;
+        }
+
+        .gallery-item {
+          flex: 0 0 auto;
+          width: 200px;
+          height: 200px;
+          scroll-snap-align: start;
+        }
+
+        .gallery h2 {
+          font-size: 1.5rem;
+        }
+
+        header::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: url("img/Frame\ 3.png") center/cover;
+          opacity: 0.3;
+          z-index: 0;
+        }
+
+        .logo {
+          width: 100px;
+          height: 100px;
+        }
+
+        .btn {
+          padding: 12px 20px;
+        }
+
+        .social-links {
+          gap: 0px;
+        }
+
+        .social-links a {
+          font-size: 1.2rem;
+        }
+
+        .footer-content h3 {
+          font-size: 1.5rem;
+        }
+
+        .footer-content P {
+          font-size: 0.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="header-content container">
+        <img
+          src="img/logo.jpg"
+          alt="Nu Gaduh Cupang Logo"
+          class="logo floating"
+        />
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="contact-section">
+        <div class="contact-card">
+          <h2><i class="fab fa-instagram"></i> Instagram Resmi</h2>
+          <p>@nugaduhcupang.id</p>
+          <div class="btn-container">
+            <a
+              href="https://www.instagram.com/nugaduhcupang.id?igsh=MWQ4a3Bob2wyYzlybA=="
+              class="btn btn-instagram"
+              target="_blank"
+            >
+              <i class="fab fa-instagram"></i> Follow Instagram
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h2><i class="fab fa-instagram"></i> Instagram Owner</h2>
+          <p>@risuu.nava</p>
+          <div class="btn-container">
+            <a
+              href="https://www.instagram.com/risuu.nava?igsh=NHl6amNsOHhzNHZp"
+              class="btn btn-instagram"
+              target="_blank"
+            >
+              <i class="fab fa-instagram"></i> Follow Instagram
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h2><i class="fab fa-whatsapp"></i> WhatsApp Admin 1</h2>
+          <p>Admin Yela</p>
+          <div class="btn-container">
+            <a
+              href="https://wa.me/6282115276734?text=Halo%20Admin%20Yela,%20saya%20tertarik%20dengan%20produk%20ikan%20cupang%20Anda.%20Bisa%20saya%20minta%20informasi%20lebih%20lanjut?"
+              class="btn btn-whatsapp"
+              target="_blank"
+            >
+              <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h2><i class="fab fa-whatsapp"></i> WhatsApp Admin 2</h2>
+          <p>Admin Faris</p>
+          <div class="btn-container">
+            <a
+              href="https://wa.me/6285871174645?text=Halo%20Admin%20Faris,%20saya%20tertarik%20dengan%20produk%20ikan%20cupang%20Anda.%20Bisa%20saya%20minta%20informasi%20lebih%20lanjut?"
+              class="btn btn-whatsapp"
+              target="_blank"
+            >
+              <i class="fab fa-whatsapp"></i> Chat via WhatsApp
+            </a>
+          </div>
+        </div>
+        <div class="contact-card">
+          <h2><i class="fab fa-whatsapp"></i>Farm & Gallery</h2>
+          <p>Jalan Cigintung, Rt 03/Rw 02, Desa Cigintung</p>
+          <div class="btn-container">
+            <a
+              href="https://maps.app.goo.gl/8CrCpJgCyPXLTPS87"
+              class="btn btn-whatsapp"
+              target="_blank"
+            >
+              <i class="fa-solid fa-map-location-dot"></i> Kunjungi Farm
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery">
+        <h2>Galeri Cupang Kami</h2>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="img/Nm.png" alt="Ikan Cupang" />
+            <div class="gallery-caption">ShortFin Multy Color</div>
+          </div>
+          <div class="gallery-item">
+            <img src="img/avatar.webp" alt="Ikan Cupang" />
+            <div class="gallery-caption">Halfmoon Super Red</div>
+          </div>
+          <div class="gallery-item">
+            <img src="img/avatar1.webp" alt="Ikan Cupang" />
+            <div class="gallery-caption">Halfmoon Vampire</div>
+          </div>
+          <div class="gallery-item">
+            <img src="img/blue.png" alt="Ikan Cupang" />
+            <div class="gallery-caption">Female Blue Rim</div>
+          </div>
+          <div class="gallery-item">
+            <img src="img/giant red koi.png" alt="Ikan Cupang" />
+            <div class="gallery-caption">Giant Red Koi</div>
+          </div>
+          <div class="gallery-item">
+            <img src="img/white.png" alt="Ikan Cupang" />
+            <div class="gallery-caption">Halfmoon White Platinum</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="footer-content">
+        <h3>nugaduhcupang.id</h3>
+        <p>Breeder & Seller Premium Betta Fish Since 2025</p>
+
+        <div class="social-links">
+          <a
+            href="https://www.instagram.com/nugaduhcupang.id?igsh=MWQ4a3Bob2wyYzlybA=="
+            target="_blank"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a
+            href="https://wa.me/6282115276734?text=Halo%20Admin%20Nu%20Gaduh%20Cupang,%20saya%20tertarik%20dengan%20produk%20ikan%20cupang%20Anda.%20Bisa%20saya%20minta%20informasi%20lebih%20lanjut?"
+            target="_blank"
+            ><i class="fab fa-whatsapp"></i
+          ></a>
+          <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+          <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+        </div>
+
+        <p>&copy; 2025 Nu Gaduh Cupang. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Enhanced animations
+      document.addEventListener("DOMContentLoaded", function () {
+        // Scroll animations
+        const observerOptions = {
+          threshold: 0.1,
+          rootMargin: "0px 0px -50px 0px",
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        }, observerOptions);
+
+        document
+          .querySelectorAll(".contact-card, .gallery-item")
+          .forEach((el) => {
+            observer.observe(el);
+          });
+
+        // Button ripple effect
+        const buttons = document.querySelectorAll(".btn");
+        buttons.forEach((button) => {
+          button.addEventListener("click", function (e) {
+            e.preventDefault();
+
+            // Create ripple element
+            const ripple = document.createElement("span");
+            ripple.className = "ripple";
+            ripple.style.width = ripple.style.height =
+              Math.max(button.offsetWidth, button.offsetHeight) + "px";
+            ripple.style.left = e.offsetX - ripple.offsetWidth / 2 + "px";
+            ripple.style.top = e.offsetY - ripple.offsetHeight / 2 + "px";
+
+            this.appendChild(ripple);
+
+            // Remove ripple after animation
+            setTimeout(() => {
+              ripple.remove();
+            }, 600);
+
+            // Open link after animation
+            setTimeout(() => {
+              window.open(this.getAttribute("href"), "_blank");
+            }, 300);
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
